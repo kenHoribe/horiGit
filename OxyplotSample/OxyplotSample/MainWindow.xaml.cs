@@ -189,7 +189,7 @@ namespace OxyplotSample
             var labelX = new OxyPlot.Annotations.TextAnnotation
             {
                 Text = line3.Points[peakIndex].Y.ToString(),
-                FontSize = 8,
+                FontSize = 12,
                 TextHorizontalAlignment = OxyPlot.HorizontalAlignment.Left,
                 TextPosition = new DataPoint(line3.Points[peakIndex].X, line3.Points[peakIndex].Y),
                 StrokeThickness = 0,
