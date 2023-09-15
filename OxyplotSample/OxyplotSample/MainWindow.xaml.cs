@@ -110,7 +110,7 @@ namespace OxyplotSample
             MyModel.Axes.Add(new OxyPlot.Axes.LinearAxis
             {
                 Position = OxyPlot.Axes.AxisPosition.Bottom,
-                MajorStep = 100,
+                MajorStep = 128,
                 MinorStep = 10,
                 MinorGridlineStyle = LineStyle.Dot,
                 MinorGridlineThickness = 1,
