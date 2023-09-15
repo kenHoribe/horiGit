@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:OxyplotSample"
         mc:Ignorable="d"
         xmlns:oxy="http://oxyplot.org/wpf"
-        Title="MainWindow" Height="800" Width="1200">
+        Title="MainWindow" Height="800" Width="1120">
     <Window.DataContext>
         <local:MainViewModel/>
     </Window.DataContext>
