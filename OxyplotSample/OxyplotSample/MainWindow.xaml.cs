@@ -56,9 +56,7 @@ namespace OxyplotSample
             d[0] = plotRawdata1.Max();
             d[1] = plotRawdata2.Max();
             d[2] = plotRawdata3.Max();
-            d[3] = plotRawdata4.Max() * 0.05;
-
-            double maxVal = d.Max();
+            d[3] = plotRawdata4.Max() * 0.04;
 
             d[0] = plotRawdata1.Min();
             d[1] = plotRawdata2.Min();
@@ -78,7 +76,7 @@ namespace OxyplotSample
                 }
             }
 
-            int maJorInterval = (int)((maxVal - minVal) / 10);
+            int maJorInterval = (int)((d.Max() - minVal) / 10);
 
             this.createGraphdata(maxVal * 1.1, minVal, maJorInterval, peakIndex);
         }
