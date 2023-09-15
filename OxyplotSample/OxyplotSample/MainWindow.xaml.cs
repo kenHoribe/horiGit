@@ -198,7 +198,6 @@ namespace OxyplotSample
 
             MyModel.Annotations.Add(labelX);
 
-            Console.WriteLine("InvalidatePlot");
             MyModel.InvalidatePlot(true);
 
 
