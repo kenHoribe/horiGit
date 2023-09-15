@@ -206,7 +206,7 @@ namespace OxyplotSample
 
         private void MyModel_Updated(object sender, EventArgs e)
         {
-            Console.WriteLine("MyModel_Updated");
+            Console.WriteLine("MyModel_Updated is called.");
 
             MyModel.Updated -= MyModel_Updated;
         }
