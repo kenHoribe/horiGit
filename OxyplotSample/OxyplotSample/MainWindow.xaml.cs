@@ -197,8 +197,6 @@ namespace OxyplotSample
             MyModel.Annotations.Add(labelX);
 
             MyModel.InvalidatePlot(true);
-
-
         }
 
         private void MyModel_Updated(object sender, EventArgs e)
