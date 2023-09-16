@@ -199,6 +199,7 @@ namespace OxyplotSample
             MyModel.InvalidatePlot(true);
         }
 
+    	// MyModel_Updated
         private void MyModel_Updated(object sender, EventArgs e)
         {
             Console.WriteLine("MyModel_Updated is called.");
