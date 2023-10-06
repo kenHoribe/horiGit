@@ -41,3 +41,15 @@ void MainWindow::keyPressEvent(QKeyEvent *event )
         ui->pushButton_5->setText("GH");
     }
 }
+
+void MainWindow::on_lineEdit_editingFinished()
+{
+    ui->pushButton_4->setText("UGE");
+}
+
+
+void MainWindow::on_pushButton_5_clicked()
+{
+    ui->pushButton_4->setText("Edited.");
+}
+
