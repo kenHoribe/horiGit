@@ -29,6 +29,10 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
+    void hogeFunc();
+    void Func1();
+    void Func2();
+
 protected:
     void keyPressEvent(QKeyEvent *pEvent);
 

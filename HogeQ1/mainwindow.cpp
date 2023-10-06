@@ -53,3 +53,18 @@ void MainWindow::on_pushButton_5_clicked()
     ui->pushButton_4->setText("Edited.");
 }
 
+void MainWindow::hogeFunc()
+{
+
+}
+
+void MainWindow::Func1()
+{
+
+}
+
+void MainWindow::Func2()
+{
+
+}
+
