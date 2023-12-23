@@ -1,0 +1,29 @@
+{
+  "books":
+  [
+    {
+      "isbn":"978-4-7980-4535-1",
+      "title":"はじめてのASP.NET Webフォーム VB版",
+       "author":"WINGSプロジェクト",
+       "published":"秀和システム",
+       "price":"3000",
+       "publishDate":"2020/12/11"
+    },
+    {
+      "isbn":"978-4-7980-4179-7",
+      "title":"ASP.NET MVC 5実践プログラミング",
+      "author":"山田祥寛",
+      "published":"秀和システム",
+      "price":"3500",
+      "publishDate":"2020/09/20"
+    },
+    {
+      "isbn":"978-4-7981-3547-2",
+      "title":"独習PHP 第3版",
+      "author":"山田祥寛",
+      "published":"翔泳社",
+      "price":"3200",
+      "publishDate":"2019/04/08"
+    }
+  ]
+}
