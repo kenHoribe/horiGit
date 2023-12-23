@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         testFunc01();
     }
 
-    private void testFunc01(){
+    private void testFunc01() {
         Log.d("MyApp", "testFunc01 start");
         Log.d("MyApp", "testFunc01 end");
     }
