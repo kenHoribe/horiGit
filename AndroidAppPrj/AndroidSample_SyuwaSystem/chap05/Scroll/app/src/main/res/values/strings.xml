@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Scroll</string>
+    <string name="sp1">胡椒</string>
+    <string name="sp2">ターメリック</string>
+    <string name="sp3">コリアンダー</string>
+    <string name="sp4">生姜</string>
+    <string name="sp5">ニンニク</string>
+    <string name="sp6">サフラン</string>
+    <string name="sp7">オレガノ</string>
+    <string name="sp8">クミン</string>
+    <string name="sp9">クローブ</string>
+    <string name="sp10">シナモン</string>
+    <string name="sp11">ナツメグ</string>
+    <string name="sp12">セージ</string>
+    <string name="sp13">タイム</string>
+    <string name="sp14">パクチー</string>
+</resources>
