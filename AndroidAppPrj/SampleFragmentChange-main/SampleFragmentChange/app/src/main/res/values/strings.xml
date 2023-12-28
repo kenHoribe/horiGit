@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SampleFragmentChange</string>
+    <string name="bt_fragment1">フラグメント1を表示</string>
+    <string name="bt_fragment2">フラグメント2を表示</string>
+    <string name="fragment1">フラグメント1</string>
+    <string name="fragment2">フラグメント2</string>
+</resources>
