@@ -38,13 +38,13 @@ void MainWindow::keyPressEvent(QKeyEvent *event )
 {
     if( event->key() == Qt::Key_A )
     {
-        ui->pushButton_5->setText("GH");
+        ui->pushButton_5->setText("GHOOOO");
     }
 }
 
 void MainWindow::on_lineEdit_editingFinished()
 {
-    ui->pushButton_4->setText("UGE");
+    ui->pushButton_4->setText("UGERA");
 }
 
 
