@@ -4,6 +4,7 @@ package to.msn.wings.tab;
         import android.support.v4.view.ViewPager;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
+        import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,5 +22,12 @@ public class MainActivity extends AppCompatActivity {
         tabs.getTabAt(0).setIcon(R.drawable.tab_icon1);
         tabs.getTabAt(1).setIcon(R.drawable.tab_icon2);
         tabs.getTabAt(2).setIcon(R.drawable.tab_icon3);
+    }
+
+    public void FuncHoge1(){
+        Log.d("unko","next station is Burjuman!");
+        TabLayout tabs = findViewById(R.id.tabs);
+        tabs.getTabAt(1).setText("4");
+
     }
 }
