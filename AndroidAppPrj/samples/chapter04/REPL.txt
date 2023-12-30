@@ -1,0 +1,379 @@
+// ■最初のKotlinプログラム
+println("Hello, World!")
+
+// ■型指定を省略する
+val a = 10000
+a // ここでCtrl＋Enter（⌘＋return）
+
+// ■定数の代入
+
+{                     // REPLでの実行のため括弧でくくっている
+     val c: Double    // 変数の宣言だけ行う
+     c = 1234.5       // 定数に値を代入する
+     c = 0.0          // 2回目の代入はエラーになる
+}                     // ここでCtrl＋Enter
+
+// ■複数行の文字列を変数に代入する
+val multiline = """Oh
+    Have a
+        nice Kotlin!"""
+print(multiline)
+
+// ■スペースを削除する
+val multiline = """
+    |Oh
+    |Have a
+    |nice Kotlin!""".trimMargin()
+print(multiline)
+
+// ■文字列を比較する
+val str = "Kotlin"
+if (str == "Kotlin") println("Hello Kotlin!")
+else if (str == "Java") println("Hello Java!")
+
+// ■変数を展開する
+val i = 10
+print("i = $i")
+
+// ■式の結果に置き換える
+val s = "Kotlin"
+print("$s length is ${s.length}")
+
+// ■文字列をInt型に変換する
+val str = "64"
+val intVal: Int = str.toInt()
+print(intVal)
+
+// ■変換に失敗した場合
+val str="Kotlin"
+val intVal:Int = str.toInt() //ここでエラーになる
+
+// ■変換できない場合はnullにする
+val str="Kotlin"
+val intValOrNull: Int? = str.toIntOrNull() //null許容する変数に代入する
+print(intValOrNull)
+
+// ■文字列に変換する
+val num = 128
+val intStr: String = num.toString()
+
+// ■Int型の変数をLong型の変数に代入する
+val i: Int = 100
+val l: Long = i //ここでエラーになる
+
+// ■toLongメソッドを使って代入する
+val i: Int = 100
+val l: Long = i.toLong() //エラーにならない
+
+// ■String型の変数にnullを代入
+var text: String = null //ここでCtrl＋Enter
+
+// ■null許容の変数を作る
+var text: String? = null
+print(text)
+
+// ■String?型の変数でString型のメソッドを使う
+var s: String? = "kotlin"
+s.toUpperCase() //ここでCtrl+Enter
+
+// ■配列の生成
+val arrayofInt: Array<Int> = arrayOf(1,2,3,5,8)
+for (i in arrayofInt) print("$i,") //配列の内容を出力
+
+// ■if式の結果を取得する
+val a = 10
+val b = 20
+val max = if (a > b) {
+    print("a is greater than b")
+ a //条件（a > b）がtrueの時に返す値
+} else {
+    print("a is less than b")
+ b //条件がfalseの時に返す値
+} // ここでCtrl＋Enter
+
+// ■戻り値の確認
+print(max) // ここでCtrl＋Enter
+
+// ■when式を使う
+val a = 4
+when (a) {
+    1    -> println("a == 1")
+    2,3  -> println("a == 2 or a == 3")
+    else -> println("otherwise")
+} //ここでCtrl＋Enter
+
+// ■範囲式を使う
+val a = 100
+when (a) {
+    in 1..10   -> println("a is in the range")
+    !in 10..20 -> println("a is outside the range")
+    else       -> println("otherwise")
+} //ここでCtrl＋Enter
+
+// ■when式から値を受け取る
+val a = 3
+val b = when (a) {
+    1    -> "a == 1"
+    2,3  -> "a == 2 or a == 3"
+    else -> "otherwise"
+}
+print(b)
+
+// ■型により処理を分岐する
+val a: Any = "Kotlin"
+when(a) {
+ is Int -> print(a * a) //ここでaはキャストしなくてもIntとして扱える
+ is String -> println(a.toUpperCase()) //ここでaはキャストしなくてもStringとして扱える
+}
+
+// ■if式のような使い方
+val a: Int? = null
+val text = "Kotlin"
+when {
+    a != null && text.startsWith("Kot") -> 
+             println("starts with a prefix 'Kot'")
+    a == null && text.endsWith("lin") -> 
+             println("ends with a suffix 'lin'")
+    else -> println("otherwise")
+}
+
+// ■配列内の要素をすべて書き出す
+val array = arrayOf(1,2,3,10,100,1000)
+for (a in array) print("$a,")
+
+// ■indicesを使ったfor文
+val a = arrayOf(1,2,3,10,100,1000)
+for (i in a.indices) {
+    print("a[$i]=${a[i]} ")
+}
+
+// ■4回繰り返す
+for (i in 1..4) print(i)
+
+// ■iの値を減算する
+for (i in 4 downTo 1) print(i)
+
+// ■stepを使う
+for(i in 0..9 step 2) print(i)
+
+// ■while文の例
+var x = 0
+while (x < 10) print(x++)
+
+// ■do-while文の例
+var i = 7
+do{
+    print("i = ${i--}, ")
+}while(i > 4)
+
+// ■読み取り専用リストを作成する
+val items: List<Int> = listOf(1, 2, 3)
+println(items)
+
+// ■リストから要素を取り出す
+val items: List<String> = listOf("First ","Second ","Third ") 
+println(items.get(0)) //インデックスが0番目の要素を取得
+println(items[1]) //インデックスが1番目の要素を取得
+println(items.size) 
+
+// ■リストの要素を変更する
+val numbers: MutableList<Int> = mutableListOf(2, 4, 6) //変更可能なリストを作成
+println(numbers)
+numbers.add(4) //要素を追加
+println(numbers)
+numbers.remove(4) //一致する要素を削除
+println(numbers)
+
+// ■読み取り専用セットの作成
+var strings: Set<String> = setOf("A","B","C")
+println(strings)
+
+// ■要素の変更
+var strings: MutableSet<String> = mutableSetOf("x","y","z") //変更可能なセットを作成
+strings.add("A") //要素を追加
+println(strings)
+strings.remove("x") //要素を削除
+println(strings)
+strings.add("y") //すでにある要素を追加
+println(strings)
+
+// ■読み取り専用マップの作成
+val fruits: Map<String, Int> = mapOf("apple" to 1, "orange" to 2, "banana" to 3)
+print(fruits)
+
+// ■値の取り出し
+val fruits: MutableMap<String, Int> = mutableMapOf("apple" to 1, "orange" 
+to 2, "banana" to 3) //変更可能なマップを作成
+print(fruits.get("apple")) //キーが”apple”の値を取得
+print(", ")
+print(fruits["orange"]) //キーが"orange"の値を取得
+
+// ■マップに要素を追加する
+fruits.put("melon",4) //要素を追加
+print(fruits)
+
+// ■マップの要素を削除する
+fruits.remove("banana")
+print(fruits)
+
+// ■関数の定義と実行
+fun times(a: Int, b: Int): Int {
+    return a * b
+}
+times(2, 5)
+
+// ■戻り値のない関数
+fun printTimes(a: Int, b: Int) : Unit {
+    println("$a multiplied by $b is ${a*b}")
+}
+printTimes(2,3)
+
+// ■引数の省略
+fun times(a: Int, b: Int = 2) = a * b
+times(2) //2番目の引数はデフォルトで2に設定されているので省略
+
+// ■引数名を指定する
+fun calc(a: Int, b:Int=1, c:Int=1, d:Int=1) = a * b - c / d
+calc(5, c = 4)
+
+// ■ラムダ式の代入
+var minus = {x: Int, y: Int -> x - y }
+minus(3,1)
+
+// ■itを使う
+var double: (Int)->Int = {it * 2}
+double(5)
+
+// ■関数型の引数を持つ関数の定義と実行
+fun doLambda(x: Int, l: (Int)->Int) = l(x) //2番目の引数は関数型
+doLambda(5, {it * 2} ) //引数にラムダ式を渡す
+
+// ■処理を変更する
+doLambda(4, {it * 10})
+
+// ■プロパティを使う
+class Dog {var name: String = ""}
+val dog = Dog()
+dog.name = "Pochi" //プロパティに値を設定する
+println(dog.name) //プロパティから値を取得する
+
+// ■コンストラクタを使う
+class Dog(val name: String) { } //クラスとコンストラクタの定義
+val dog = Dog("Pochi") //インスタンスの生成
+print(dog.name) //nameプロパティを使う
+
+// ■イニシャライザを使う
+class Dog(val name: String) {
+	// イニシャライザ
+    init {                            
+        print("The dog's name is $name")
+    }                                   
+}
+val dog = Dog("Pochi") //ここでイニシャライザが呼ばれる
+
+// ★クラスの継承
+open class Person(val name: String){} //親クラス
+class Student(name: String, var degree: String): Person(name) {} //子クラス
+val student = Student("Sato","Bachelor") //インスタンスの取得
+
+// ■型チェックのサンプル
+fun getLen (obj: Any): Int? {
+ if (obj is String) { //isで型をチェック
+ return obj.length //チェック後はStringとして振る舞う
+    }
+    return null
+}
+
+// ■キャストの実行
+open class Person(val name: String) {} //親クラス
+class Student(name: String, var degree:String): Person(name) {} //子クラス
+var person: Person = Student("Sato","Bachelor") //StudentをPersonとして保持
+var student: Student = person as Student //元のStudentへキャスト
+
+// ■nullをキャストする
+var person: Person? = null
+var student = person as Student //Student型にキャスト
+
+// ■違う型にキャストする
+var person: Person = Student("Sato","Bachelor")
+var student = person as Int //Int型にキャスト
+
+// ■as?を使う
+var person: Person = Student("Sato","Bachelor")
+var student = person as? Int //as?を使うと例外が発生しない
+print(student)
+
+// ■変数sがnullの場合
+var s: String? = null
+print("The length of $s is ${s?.length}. ")
+
+// ■変数がnull以外の場合
+s = "abc"
+print("The length of $s is ${s?.length}. ")
+
+// ■引数がnullではない場合
+fun lengthNullable(s: String?) = s?.length ?: 0
+print(lengthNullable("abcd"))
+
+// ■引数がnullの場合
+print(lengthNullable(null))
+
+// ■withを使わない場合
+class Dog(val name: String) {
+    var age: Int = 0
+    fun message(): String {
+        return "Dog's name is $name, $age years old"
+    }
+}
+val dog = Dog("Pochi") //インスタンスの生成
+dog.age = 10 //プロパティに値を設定
+dog.message() //メソッドの利用
+
+// ■withを使う場合
+with(Dog("Pochi")){
+    age = 10
+    message()
+}
+
+// ■applyを使う
+Dog("Pochi").apply { 
+    age = 10 
+}.message()
+
+// ■letを使わない場合
+var name:String? = "Peter" //String?型の変数
+var upperCase = name?.toUpperCase() //メソッドの実行
+var len = name?.length //プロパティの参照
+print("$upperCase $len")
+
+// ■letを使う場合
+var output = name?.let {
+    var upperCase =it.toUpperCase()
+    var len = it.length
+    "$upperCase $len"
+}
+print(output)
+
+// ■run関数を使う
+var output = name?.run {
+    "${toUpperCase()} $length"
+}
+print(output)
+
+// ■also関数を使う
+val arrayInt = listOf(1,2,3,5,8).also{
+     print(it)
+}
+
+// ■Pairの使い方
+val p = Pair("apple", 1) //Pairの作成
+println("the number of ${p.first} is ${p.second}") //値の取り出し
+
+// ■toでPairを作る
+val useTo = "orange" to 2 //toを使ったPairの作成
+println("the number of ${useTo.first} is ${useTo.second}")
+
+// ■Stringクラスにsurround関数を拡張する
+fun String.surround() = "[" + this + "]"
+println("Kotlin".surround())
+
