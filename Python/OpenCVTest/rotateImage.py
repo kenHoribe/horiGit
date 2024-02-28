@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 dir = r"D:\HogeGit\horiGit\Python\OpenCVTest\ImageDir\Feature001" + "\\"
-filename = r"5000.png"
+filename = r"crop_test_1.jpg"
 path = dir + filename
 img = cv2.imread(path)
 
@@ -18,15 +18,29 @@ angle = 0
 for i in contours:
     area = cv2.contourArea(i)  # 各領域の面積
     
-    if 10000<area<15000:  # 10000<面積<15000の場合
+    if 10000 < area < 15000:  # 10000<面積<15000の場合
         rect = cv2.minAreaRect(i)  # 回転外接矩形の算出
         angle = rect[2]  # 回転角を設定
+        print("Angle:" + str(angle))
 
-trans = cv2.getRotationMatrix2D(center, angle, scale=1)  # 変換行列の算出
-img2 = cv2.warpAffine(img, trans, (width, height))  # 元画像を回転
+        trans = cv2.getRotationMatrix2D(center, angle, scale=1)  # 変換行列の算出
+        img2 = cv2.warpAffine(img, trans, (width, height))  # 元画像を回転
 
-#画像の表示
-cv2.imshow('imshow_test', img2)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+        #画像の表示
+        cv2.imshow('imshow_test', img2)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
+    else:
+        rect = cv2.minAreaRect(i)  # 回転外接矩形の算出
+        angle = rect[2]  # 回転角を設定
+        #print("Angle:" + str(angle))
+
+        trans = cv2.getRotationMatrix2D(center, angle, scale=1)  # 変換行列の算出
+        img2 = cv2.warpAffine(img, trans, (width, height))  # 元画像を回転
+
+        #画像の表示
+        #cv2.imshow('imshow_test', img2)
+        #cv2.waitKey(0)
+        #cv2.destroyAllWindows()
+
 
