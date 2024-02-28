@@ -1,0 +1,126 @@
+﻿<Window x:Class="WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="600">
+    <Grid>
+        <DockPanel LastChildFill="True">
+            <Menu DockPanel.Dock="Top"
+                  VerticalAlignment="Top">
+                <MenuItem Header="ファイル(_F)">
+                    <MenuItem Header="閉じる(_C)"
+                              Click="MenuItem_Close_Click"/>
+                </MenuItem>
+            </Menu>
+            <StatusBar DockPanel.Dock="Bottom">
+                <Label Name="StatusBarText"
+                       Content="file name"/>
+            </StatusBar>
+            <DockPanel DockPanel.Dock="Bottom"
+                       LastChildFill="True">
+                <ToolBar DockPanel.Dock="Top"
+                         Width="Auto"
+                         Height="28"
+                         HorizontalAlignment="Stretch"
+                         VerticalAlignment="Top">
+                    <Label Content="手法:"
+                           Height="24"
+                           VerticalAlignment="Center" />
+                    <ComboBox Name="cmbAlgorithm"
+                              Width="90"
+                              Height="Auto"
+                              Margin="10,0,5,0"
+                              SelectedIndex="0"
+                              ToolTip="Algorithm"
+                              HorizontalAlignment="Center">
+                        <ComboBoxItem Content="Correl"/>
+                        <ComboBoxItem Content="Chisqr"/>
+                        <ComboBoxItem Content="Intersect"/>
+                        <ComboBoxItem Content="Bhattacharyya"/>
+                        <ComboBoxItem Content="Hellinger"/>
+                    </ComboBox>
+                    <Separator/>
+                    <Button ToolTip="探す"
+                            Click="MenuItem_Find_Click">
+                        <Image Source="Icons/FindNext.png"/>
+                    </Button>
+                    <Button ToolTip="削除"
+                            Click="MenuItem_Remove_Click">
+                        <Image Source="Icons/RemoveFromCollection.png"/>
+                    </Button>
+                    <Button ToolTip="全削除"
+                            Click="MenuItem_ClearAll_Click">
+                        <Image Source="Icons/ClearCollection.png"/>
+                    </Button>
+                </ToolBar>
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                              VerticalScrollBarVisibility="Disabled">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Column="0"
+                                BorderBrush="LightGray"
+                                BorderThickness="1,1,1,1">
+                            <ScrollViewer Grid.Column="0"
+                                          HorizontalScrollBarVisibility="Disabled"
+                                          VerticalScrollBarVisibility="Disabled"
+                                          AllowDrop="True"
+                                          Drop="Image0_Drop">
+                                <Image Grid.Column="0"
+                                       x:Name="Image0"
+                                       Stretch="Uniform"/>
+                            </ScrollViewer>
+                        </Border>
+                        <ListView Grid.Column="1"
+                                  x:Name="LImages"
+                                  ItemsSource="{Binding Imgs}"
+                                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                  SelectionMode="Extended"
+                                  AllowDrop="True"
+                                  Drop="LImages_Drop" >
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="{x:Type ListViewItem}">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding judge}"
+                                                     Value="Yes">
+                                            <Setter Property="BorderBrush"
+                                                    Value="Red"/>
+                                            <Setter Property="Background"
+                                                    Value="#FF3171A9"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel />
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Width="148"
+                                          Height="148">
+                                        <TextBlock Text="{Binding Url}"
+                                                   VerticalAlignment="Top"
+                                                   FontSize="12"/>
+                                        <Image Source="{Binding FullUrl}"
+                                               Margin="0,20,0,20"/>
+                                        <TextBlock Text="{Binding Result}"
+                                                   VerticalAlignment="Bottom"
+                                                   HorizontalAlignment="Center"
+                                                   FontSize="12"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+                </ScrollViewer>
+            </DockPanel>
+        </DockPanel>
+    </Grid>
+</Window>

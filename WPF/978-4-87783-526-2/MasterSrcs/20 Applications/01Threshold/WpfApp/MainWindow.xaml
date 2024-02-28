@@ -1,0 +1,112 @@
+﻿<Window x:Class="WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="600">
+    <Grid>
+        <DockPanel LastChildFill="True"
+                   AllowDrop="True"
+                   Drop="DockPanel_Drop">
+            <StackPanel DockPanel.Dock="Top"
+                        Margin="6">
+                <Menu VerticalAlignment="Top">
+                    <MenuItem Header="ファイル(_F)">
+                        <MenuItem Header="開く(_O)"
+                                  Click="MenuItem_Open_Click"/>
+                        <MenuItem Header="保存(_S)"
+                                  Click="MenuItem_SvaeAs_Click"/>
+                        <MenuItem Header="閉じる(_C)"
+                                  Click="MenuItem_Close_Click"/>
+                    </MenuItem>
+                    <MenuItem Header="ツール(_T)">
+                        <MenuItem Header="処理(_E)"
+                                  Click="MenuItem_Common_Click"/>
+                    </MenuItem>
+                </Menu>
+                <ToolBar Width="Auto"
+                         Height="28"
+                         HorizontalAlignment="Stretch"
+                         VerticalAlignment="Top">
+                    <Button ToolTip="開く"
+                            Click="MenuItem_Open_Click">
+                        <Image Source="Icons/OpenFolder.png"/>
+                    </Button>
+                    <Button ToolTip="保存"
+                            Click="MenuItem_SvaeAs_Click">
+                        <Image Source="Icons/SaveAs.png"/>
+                    </Button>
+                    <Separator/>
+                    <Label Content="処理:"
+                           Height="24"
+                           VerticalAlignment="Center" />
+                    <ComboBox Name="cmbAlgorithm"
+                              Width="90"
+                              Height="Auto"
+                              Margin="10,0,5,0"
+                              SelectedIndex="0"
+                              ToolTip="Algorithm"
+                              HorizontalAlignment="Center">
+                        <ComboBoxItem Content="BINARY"/>
+                        <ComboBoxItem Content="BINARY_INV"/>
+                        <ComboBoxItem Content="TRUNC"/>
+                        <ComboBoxItem Content="TOZERO"/>
+                        <ComboBoxItem Content="TOZERO_INV"/>
+                    </ComboBox>
+                    <Separator/>
+                    <Label Content="表示:"
+                           Height="24"
+                           VerticalAlignment="Center" />
+                    <ComboBox Name="cDMode"
+                              SelectionChanged="CmbDMode_SelectionChanged">
+                        <ComboBoxItem IsSelected="True">全体</ComboBoxItem>
+                        <ComboBoxItem>実寸</ComboBoxItem>
+                    </ComboBox>
+                </ToolBar>
+                <DockPanel LastChildFill="True"
+                           Height="Auto"
+                           Background="AliceBlue">
+                    <Label Content="Max"
+                           VerticalAlignment="Center"/>
+                    <TextBox Name="TextBoxMax"
+                             Text="128"
+                             VerticalAlignment="Center"/>
+                    <Label Content="Threahold"
+                           Margin="10"
+                           VerticalAlignment="Center"/>
+                    <Label Name="LabelThreahold"
+                           DockPanel.Dock="Right"
+                           Content="128"
+                           Width="30"
+                           HorizontalAlignment="Right"
+                           HorizontalContentAlignment="Right"
+                           VerticalAlignment="Center"/>
+                    <Slider x:Name="Slider"
+                            VerticalAlignment="Center"
+                            Minimum="0"
+                            Maximum="255"
+                            IsSnapToTickEnabled="True"
+                            TickFrequency="1"
+                            SmallChange="1"
+                            LargeChange="8"
+                            Value="128"
+                            TickPlacement="TopLeft"
+                            ValueChanged="Slider_ValueChanged"/>
+                </DockPanel>
+            </StackPanel>
+            <StatusBar DockPanel.Dock="Bottom">
+                <Label Name ="StatusBarText"
+                       Content="file name"/>
+            </StatusBar>
+            <ScrollViewer x:Name ="Scroll"
+                          HorizontalScrollBarVisibility="Disabled"
+                          VerticalScrollBarVisibility="Disabled">
+                <Image Name="Image"
+                       Stretch="Uniform"
+                       SizeChanged="Image_SizeChanged"/>
+            </ScrollViewer>
+        </DockPanel>
+    </Grid>
+</Window>

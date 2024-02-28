@@ -1,0 +1,122 @@
+﻿<Window x:Class="WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="600">
+    <!--<Grid ShowGridLines="True">-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Menu Grid.Row="0"
+              Grid.ColumnSpan="2">
+            <MenuItem Header="ファイル(_F)">
+                <MenuItem Header="開く(画像)(_O)"
+                          Click="MenuItem_Open_Click"/>
+                <MenuItem Header="開く(検出器)(_D)"
+                          Click="MenuItem_Open_Detector_Click"/>
+                <MenuItem Header="保存(_S)"
+                          Click="MenuItem_SvaeAs_Click"/>
+                <MenuItem Header="閉じる(_C)"
+                          Click="MenuItem_Close_Click"/>
+            </MenuItem>
+            <MenuItem Header="ツール(_T)">
+                <MenuItem Header="大きく(_B)"
+                          Tag= "0"
+                          Click="MenuItem_Common_Click"/>
+                <MenuItem Header="小さく(_S)"
+                          Tag= "1"
+                          Click="MenuItem_Common_Click"/>
+            </MenuItem>
+        </Menu>
+        <ToolBar Grid.Row="1" Grid.ColumnSpan="2"
+                 Width="Auto"
+                 Height="28"
+                 HorizontalAlignment="Stretch"
+                 VerticalAlignment="Top">
+            <Button ToolTip="大きく"
+                    Tag= "0"
+                    Click="MenuItem_Common_Click">
+                <Image Source="Icons/ZoomIn.png"/>
+            </Button>
+            <Button ToolTip="小さく"
+                    Tag= "1"
+                    Click="MenuItem_Common_Click">
+                <Image Source="Icons/ZoomOut.png"/>
+            </Button>
+            <Separator />
+            <CheckBox x:Name="CbFrame" Content="枠表示">
+                <CheckBox.Style>
+                    <Style TargetType="CheckBox"
+                           BasedOn="{StaticResource {x:Type CheckBox}}"/>
+                </CheckBox.Style>
+            </CheckBox>
+            <Separator />
+            <Label Content="検出器:"
+                   Height="24"
+                   VerticalAlignment="Center"/>
+            <Button ToolTip="検出器を開く"
+                    Click="MenuItem_Open_Detector_Click">
+                <Image Source="Icons/OpenFolder.png"/>
+            </Button>
+            <Label Name ="DetectorText" Height="24"/>
+        </ToolBar>
+        <ToolBar Grid.Row="2" Grid.Column="0"
+                 Width="Auto"
+                 Height="28"
+                 HorizontalAlignment="Stretch"
+                 VerticalAlignment="Top">
+            <Button ToolTip="開く" Click="MenuItem_Open_Click">
+                <Image Source="Icons/OpenFolder.png"/>
+            </Button>
+        </ToolBar>
+        <ToolBar Grid.Row="2" Grid.Column="1"
+                 Width="Auto"
+                 Height="28"
+                 HorizontalAlignment="Stretch"
+                 VerticalAlignment="Top">
+            <Button ToolTip="保存"
+                    Click="MenuItem_SvaeAs_Click">
+                <Image Source="Icons/SaveAs.png"/>
+            </Button>
+        </ToolBar>
+        <ScrollViewer Grid.Row="3" Grid.Column="0"
+                      HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Disabled"
+                      AllowDrop="True"
+                      Drop="DockPanel_Drop">
+            <Border BorderBrush="Gray"
+                    BorderThickness="1,1,1,1">
+                <Image x:Name="Image0"
+                       Stretch="Uniform"/>
+            </Border>
+        </ScrollViewer>
+        <ScrollViewer Grid.Row="3" Grid.Column="1"
+                      HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Disabled"
+                      AllowDrop="True"
+                      Drop="DockPanel_Drop">
+            <Border BorderBrush="Gray"
+                    BorderThickness="1,1,1,1">
+                <Image x:Name="Image1"
+                       Stretch="Uniform"/>
+            </Border>
+        </ScrollViewer>
+        <StatusBar Grid.Row="4" Grid.ColumnSpan="2">
+            <Label Name="StatusBarText"
+                   Content="file name"/>
+            <Label Name="StatusBarDetects"/>
+        </StatusBar>
+    </Grid>
+</Window>
