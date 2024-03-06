@@ -1,0 +1,5 @@
+total 8
+drwxr-xr-x  4 horibekengo  staff  128  3  6 15:09 .
+-rw-r--r--  1 horibekengo  staff    0  3  6 15:09 hoge.txt
+drwxr-xr-x  5 horibekengo  staff  160  1 17 00:22 ..
+-rw-r--r--@ 1 horibekengo  staff  107  1 10 16:13 helloworld.py
