@@ -1,4 +1,4 @@
-/*
+/* Vue2
 new Vue ({
     el:'#ex1',
     data: {
