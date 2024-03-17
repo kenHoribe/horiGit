@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+<body>
+    <style>
+        .red {
+            color: red
+        }
+        .green {
+            color: green
+        }
+        .blue {
+            color: blue
+        }
+
+    </style>
+    <div id="app">
+        {{ number }}
+        <button v-on:click="countUp">カウントアップ</button>
+        <div v-if="number">条件次第で表示</div>
+        <ul>
+            <li v-for="item in items">{{ item  }}</li>
+        </ul>
+        <div v-bind:class="color">カラー</div>
+        <input type="text" v-model="color">
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                number:0,
+                items:[1,2,3],
+                color:'aaaaa'
+
+            },
+            methods:{
+                countUp:function(){
+                    this.number = this.number + 1        
+                }
+            }
+        })
+    </script>    
+</body>
+</html>
