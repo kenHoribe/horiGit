@@ -39,3 +39,11 @@ Vue.createApp({
         };
     }
 }).mount("#ex4");
+
+Vue.createApp({ 
+    data:function(){
+        return {
+            flag: true
+        };
+    }
+}).mount("#ex5");
