@@ -23,3 +23,19 @@ Vue.createApp({
         };
     }
 }).mount("#ex2");
+
+Vue.createApp({
+    data: function(){
+        return {
+            luffy: "ルフィ"
+        };
+    }
+}).mount("#ex3");
+
+Vue.createApp({
+    data: function(){
+        return {
+            unkoUrl: "https://one-piece.com/"
+        };
+    }
+}).mount("#ex4");

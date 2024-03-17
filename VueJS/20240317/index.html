@@ -11,8 +11,15 @@
     <h5>アプリケーションインスタンスを作成するメソッド</h5>
     <div id="ex1">
         <p> {{ luffy }} </p>
-        <p v-text="luffy"></p>
+        <p v-text="luffy"></p>     
     </div>
-    <script src="index.js"></script>
+
+    <h1>v-bind</h1>
+    <h5>属性値に式を埋め込む</h5>
+    <div id="ex4">
+        <a v-bind:href="unkoUrl">ワンピースのサイト</a>
+    </div>
+
+     <script src="index.js"></script>
 </body>
 </html>
