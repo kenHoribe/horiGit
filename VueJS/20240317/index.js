@@ -15,3 +15,11 @@ Vue.createApp({
         };
     }
 }).mount("#ex1");
+
+Vue.createApp({
+    data: function(){
+        return {
+            luffy: "ルフィ"
+        };
+    }
+}).mount("#ex2");
