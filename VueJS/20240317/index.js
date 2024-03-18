@@ -47,3 +47,25 @@ Vue.createApp({
         };
     }
 }).mount("#ex5");
+
+Vue.createApp({
+    data(){
+        return {
+            characters:[
+                {
+                    name: "ベポ",
+                    bounty: 500
+                },
+                {
+                    name: "チョッパー",
+                    bounty: 1000
+                },
+            ]
+        };
+    },
+    computed: {
+        fiterbounty(){
+            return this.characters.filter(c=>c.bounty >= 800);
+        }
+    }
+}).mount("#ex9");
