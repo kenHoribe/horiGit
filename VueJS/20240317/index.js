@@ -48,8 +48,30 @@ Vue.createApp({
     }
 }).mount("#ex5");
 
+/*Bootstrap 効いてない*/
 Vue.createApp({
-    data(){
+    data:function(){
+        return {
+            attrs: {   
+                class: "btn btn-warning",                             
+                disabled: true,
+            }
+        };
+    },
+}).mount("#ex10");
+
+Vue.createApp({ 
+    data:function(){
+        return {
+            url: "img/luffy.png",
+            attr: "width",
+            size: 100,
+        };
+    }
+}).mount("#ex11");
+
+Vue.createApp({
+    data:function(){
         return {
             characters:[
                 {
@@ -66,6 +88,6 @@ Vue.createApp({
     computed: {
         fiterbounty(){
             return this.characters.filter(c=>c.bounty >= 800);
-        }
+        },
     }
 }).mount("#ex9");

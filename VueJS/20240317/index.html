@@ -30,13 +30,33 @@
     <h5>算出プロパティを利用する</h5>
     <div id="ex9">
         <template v-for="chara in characters">
-            <p>{{ chara.name }}:{{ chara.bounty }}ベリー</p>
+            <p>{{ chara.name }}:{{ chara.b ounty }}ベリー</p>
         </template>
         <hr>
         <template v-for="chara in fiterbounty">
             <p>{{ chara.name }}:{{ chara.bounty }}ベリー</p>
         </template>
     </div>
+
+    <h1>v-bind</h1>
+    <h5>複数の属性を指定する</h5>
+    <div id="ex10">
+        <button v-bind="attrs">悪魔の実2</button>
+    </div>
+
+    <h1>動的引数</h1>
+    <h5>複数の属性を指定する方法</h5>
+    <div id="ex11">
+        <select v-model="attr">
+            <option value="height">高さ</option>
+            <option value="width">幅</option>
+        </select>
+        <br>
+        <input type="text" v-model="size"/>
+        <br>
+        <img v-bind:src="url" v-bind:[attr]="size" />
+    </div>
+
      <script src="index.js"></script> 
 </body>
 </html>
