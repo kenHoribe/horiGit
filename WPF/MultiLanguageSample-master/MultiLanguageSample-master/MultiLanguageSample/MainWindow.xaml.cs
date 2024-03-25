@@ -27,15 +27,14 @@ namespace MultiLanguageSample {
 		private string[] CultureList = { "ja-JP", "en-US", "zh-CN" };
 
 		private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-			var bindData = DataContext as MainWindowModel;
-			ResourceService.Current.ChangeCulture(CultureList[bindData.LanguageIndex]);
+			var vm = DataContext as MainWindowModel;
+			ResourceService.Current.ChangeCulture(CultureList[vm.LanguageIndex]);
 
-            bindData.MyImage = Properties.Resources.pikminImg;
+            vm.RaisePropertyChange("MyImage");
         }
 
-		class MainWindowModel: INotifyPropertyChanged {
-
-            private string _MyImage = (string)Application.Current.Resources["pikminImg"];
+		class MainWindowModel: INotifyPropertyChanged
+        {
 
             public int LanguageIndex { get; set; }
 
@@ -43,12 +42,7 @@ namespace MultiLanguageSample {
             {
                 get
                 {
-                    return _MyImage; 
-                }
-                set
-                {
-                    _MyImage = value;
-                    NotifyPropertyChanged("MyImage");
+                    return Properties.Resources.pikminImg; 
                 }
             }
 
@@ -58,6 +52,14 @@ namespace MultiLanguageSample {
                 if (PropertyChanged != null)
                 {
                     PropertyChanged(this, new PropertyChangedEventArgs(info));
+                }
+            }
+
+            public void RaisePropertyChange(string propertyname)
+            {
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
                 }
             }
 

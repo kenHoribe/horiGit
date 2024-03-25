@@ -6,12 +6,12 @@
 	xmlns:local="clr-namespace:MultiLanguageSample"
 	xmlns:properties="clr-namespace:MultiLanguageSample.Properties"
 	mc:Ignorable="d"
-	Title="MultiLanguageSample" Height="450" Width="300">
+	Title="MultiLanguageSample" Height="350" Width="300">
 	<Grid Margin="5,5,5,5">
 		<Grid.RowDefinitions>
-			<RowDefinition/>
-			<RowDefinition/>
-            <RowDefinition/>
+			<RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
 		<Grid Grid.Row="0">
 			<Grid.ColumnDefinitions>
