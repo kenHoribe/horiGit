@@ -53,8 +53,26 @@ def Learning002():
     cv2.destroyAllWindows()
     cap.release()    
         
+def Learning003():
+    img = cv2.imread("data/src/grapes.jpg")
+    # 画像が読み込めなかった場合の例外処理
+    if img is None:
+        print(f'Failed to load image from {img}')
+        return
     
+    img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    img_hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    
+    cv2.imshow("img",img)
+    cv2.imshow("gray",img_gray)
+
+    # これもGrayScale
+    #img_gray2 = cv2.imread("data/src/grapes.jpg",0)
+    
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+        
 if __name__ == '__main__':
-    Learning002()
+    Learning003()
     #main()
     
