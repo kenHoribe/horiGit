@@ -52,6 +52,12 @@ def Learning002():
             break
     cv2.destroyAllWindows()
     cap.release()    
+
+def Learning004():
+    img = np.ones((500,500,3)) * 255
+    cv2.imshow("aaa", img)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
         
 def Learning003():
     img = cv2.imread("data/src/grapes.jpg")
@@ -73,6 +79,6 @@ def Learning003():
     cv2.destroyAllWindows()
         
 if __name__ == '__main__':
-    Learning003()
+    Learning004()
     #main()
     
